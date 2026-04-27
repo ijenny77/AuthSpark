@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+    <body class="bg-black">
+    <form action="/signup" method="post">
+        <div class="flex border-white bg-white m-20 w-[55rem] rounded-lg h-[45rem] ml-80 ">
+            <div class="mr-10 ml-20 w-96">
+                <h1 class="font-semibold text-3xl mt-20 mb-1">CREATE ACCOUNT</h1>
+                <p class="pb-8 text-sm text-zinc-700">Sign up to get started 🚀 </p>
+                <label class="font-semibold">Full Name</label><br>
+                <input class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="text" placeholder="Enter your name " required name="name"><br>
+                <label class="font-semibold">Email</label><br>
+                <input class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="email" placeholder="Enter your email " required name="email"><br>
+                <label class="font-semibold">Password</label><br>
+                <input class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Create a password" required name="password"><br>
+                <label class="font-semibold">Confirm Password</label>
+                <input class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Confirm password" required name="password"><br>
+                <input class="font-semibold" type="checkbox"><span> I agree to the</span> <span class="text-red-500 font-semibold">Terms & Conditions</span>
+                <button class="bg-[#EA454C] w-70 rounded-lg h-10 text-white mt-2 mb-2">Sign up</button><br>
+                <div class="border border-zinc-400 w-70 rounded-lg h-10 font-semibold">
+                    <div class="flex">
+                        <img class="h-8 pl-12 pt-2" src="image/google-logo-removebg-preview.png" alt="logo of Google">
+                        <p class="text-center pt-2">Sign up with Google</p>
+                    </div>
+                </div><br>
+                <div class="flex pt-2">
+                    <p class="text-sm pl-6">Already have an account?</p>
+                    <a class="text-sm text-red-400 font-semibold" href="login.html"> Sign In</a>
+                </div>
+            </div>
+            <div>
+                <img class="h-[45rem] rounded-xl" src="image/image.png" alt="image">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

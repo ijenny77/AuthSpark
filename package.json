@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,43 @@
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18"
-  }
+  },
+  "dependencies": {
+    "baseline-browser-mapping": "^2.9.18",
+    "body-parser": "^2.2.2",
+    "browserslist": "^4.28.1",
+    "caniuse-lite": "^1.0.30001766",
+    "detect-libc": "^2.1.2",
+    "electron-to-chromium": "^1.5.278",
+    "enhanced-resolve": "^5.18.4",
+    "escalade": "^3.2.0",
+    "express": "^5.2.1",
+    "fraction.js": "^5.3.4",
+    "graceful-fs": "^4.2.11",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "jiti": "^2.6.1",
+    "lightningcss": "^1.30.2",
+    "lightningcss-win32-x64-msvc": "^1.30.2",
+    "magic-string": "^0.30.21",
+    "mongoose": "^9.1.5",
+    "mri": "^1.2.0",
+    "nanoid": "^3.3.11",
+    "node-addon-api": "^7.1.1",
+    "node-releases": "^2.0.27",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.3",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "tapable": "^2.3.0",
+    "update-browserslist-db": "^1.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijenny77/AuthSpark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ijenny77/AuthSpark/issues"
+  },
+  "homepage": "https://github.com/ijenny77/AuthSpark#readme"
 }
