@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="bg-black">
-    <form action="/login" method="post">
+    <form>
         <div class="flex border-white bg-white m-20 w-[55rem] rounded-lg ml-80">
             <div class="mr-10 ml-20 w-96">
                 <h1 class="font-semibold text-3xl mt-20">WELCOME BACK</h1>
@@ -16,6 +16,7 @@
                 </p>
                 <label class="font-semibold">Email</label><br />
                 <input
+                    id="email"
                     class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1"
                     type="email"
                     placeholder="Enter your email "
@@ -24,6 +25,7 @@
                 /><br />
                 <label class="font-semibold">Password</label><br />
                 <input
+                  id="password"
                   class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 mt-1 mb-4"
                   type="password"
                   placeholder="**********"
@@ -31,12 +33,12 @@
                   name="password"
                 /><br />
                 <div class="font-semibold">
-                    <input class="font-semibold" type="checkbox" />Remember me
+                    <input id="rememberMe" class="font-semibold" type="checkbox" />Remember me
                     <a class="pl-10" href="forgot.html">
                         Forgot password
                     </a><br />
                 </div>
-                <button class="bg-[#EA454C] w-70 rounded-lg h-10 text-white mt-2 mb-2">
+                <button type="submit" class="bg-[#EA454C] w-70 rounded-lg h-10 text-white mt-2 mb-2">
                     Sign in
                 </button><br />
                 <div class="border border-zinc-400 w-70 rounded-lg h-10 font-semibold">
@@ -62,5 +64,24 @@
             </div>
         </div>
     </form>
+    <script>
+        document.querySelector('form').addEventListener('submit',async(e)=>{e.preventDefault()
+        const email = document.getElementById('email').value 
+        const password = document.getElementById('password').value
+        const rememberMe = document.getElementById('rememberMe').checked 
+
+        const response =await fetch('http://localhost:3000/auth/login',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({email,password})
+        })
+        const data =await response.text()
+        if(response.ok){
+            alert("Logged in successfully!")
+            window.location.href = 'dashboard.html'
+        }
+        alert(data)
+        })
+    </script>
   </body>
 </html>

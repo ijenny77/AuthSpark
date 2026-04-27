@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="output.css">
 </head>
     <body class="bg-black">
-    <form action="/signup" method="post">
+    <form>
         <div class="flex border-white bg-white m-20 w-[55rem] rounded-lg h-[45rem] ml-80 ">
             <div class="mr-10 ml-20 w-96">
                 <h1 class="font-semibold text-3xl mt-20 mb-1">CREATE ACCOUNT</h1>
                 <p class="pb-8 text-sm text-zinc-700">Sign up to get started 🚀 </p>
                 <label class="font-semibold">Full Name</label><br>
-                <input class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="text" placeholder="Enter your name " required name="name"><br>
+                <input id="name" class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="text" placeholder="Enter your name " required name="name"><br>
                 <label class="font-semibold">Email</label><br>
-                <input class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="email" placeholder="Enter your email " required name="email"><br>
+                <input id="email" class="border-2 border-zinc-300 rounded-lg w-70 h-10 pl-4 py-4 mb-4 mt-1" type="email" placeholder="Enter your email " required name="email"><br>
                 <label class="font-semibold">Password</label><br>
-                <input class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Create a password" required name="password"><br>
+                <input id="password" class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Create a password" required name="password"><br>
                 <label class="font-semibold">Confirm Password</label>
-                <input class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Confirm password" required name="password"><br>
-                <input class="font-semibold" type="checkbox"><span> I agree to the</span> <span class="text-red-500 font-semibold">Terms & Conditions</span>
-                <button class="bg-[#EA454C] w-70 rounded-lg h-10 text-white mt-2 mb-2">Sign up</button><br>
+                <input id="confPass" class="border-2 border-zinc-300 rounded-lg  w-70 h-10 pl-4 mt-1 mb-4" type="password" placeholder="Confirm password" required name="ConfirmPassword"><br>
+                <input id="termsAndConditions" class="font-semibold" type="checkbox"><span> I agree to the</span> <span class="text-red-500 font-semibold">Terms & Conditions</span>
+                <button type="submit" class="bg-[#EA454C] w-70 rounded-lg h-10 text-white mt-2 mb-2">Sign up</button><br>
                 <div class="border border-zinc-400 w-70 rounded-lg h-10 font-semibold">
                     <div class="flex">
                         <img class="h-8 pl-12 pt-2" src="image/google-logo-removebg-preview.png" alt="logo of Google">
@@ -38,5 +38,33 @@
             </div>
         </div>
     </form>
+    <script>
+        document.querySelector('form').addEventListener('submit',async(e) => {
+            e.preventDefault()
+
+            const name = document.getElementById("name").value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+            const confirmPassword = document.getElementById('confPass').value
+            const termsAndConditions = document.getElementById('termsAndConditions').checked 
+            if(!termsAndConditions){
+                alert("Please agree to the Terms & Conditions")
+                return
+            }
+            const response = await fetch('http://localhost:3000/auth/register',{
+                method:'POST',
+                headers: {'Content-Type':'application/json'},
+                body:JSON.stringify({name,email,password,confirmPassword})
+            })
+
+            const data = await response.text()
+            if(response.ok){
+                alert("Account created successfully!")
+                window.location.href = 'login.html'
+            }else{
+                alert(data)
+            }
+        })
+    </script>
 </body>
 </html>
